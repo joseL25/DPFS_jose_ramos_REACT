@@ -1,0 +1,274 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+body{  
+    /* font-family: 'Audiowide', sans-serif; */
+    /* overflow: hidden; */
+    padding: 0;
+    margin: 0;
+    background-color: rgb(0, 0, 0);
+    font-family: Arial, sans-serif;
+}
+
+/* Comienza la barra de navegacion */
+.nav-bar{
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    background-color: #000000;
+    align-items: center;
+    border: 1px solid rgb(126, 65, 206);
+    border-right-width: 0px;
+    border-left-width: 0px;
+    border-top-width: 0px;
+    box-shadow: 0 0px 20px rgb(185, 131, 255);
+}
+
+.log-page{
+    width: 8rem;  
+}
+
+.icon-logo-page{
+    width: 100%;
+    /* height: 40%; */
+}
+
+.search-container{
+    width: max-content;
+    display: flex;
+    padding: 10px 15px;
+    border-radius: 28px;
+    background-color: #f6f6f6;
+    align-items: center;
+}
+
+.search-input{
+    font-size: 16px;
+    font-family: 'Lexend', sans-serif;
+    color: #333333;
+    margin-left: 14px;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    width: 300px;
+    padding: 10px;
+}
+
+.logos-nav{
+    width: 300px;
+    /* width: 94px; */
+    /* width: auto; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* transform: translateY(-17%); */
+}
+
+.logos-nav a i{
+    font-size: 40px;
+    padding-left: 2px;
+    padding-top: 1px;
+}
+
+.logos-nav .user-content{
+    display: flex;
+    justify-content: start;
+
+    gap: 3%;
+    text-decoration: none;
+    background-color: #D2D2D2;
+    color: black;
+    height: auto;
+    width: 50%;
+    border-radius: 25px;
+    align-items: center;
+    padding: 1% 1%;
+}
+
+.user-content:active{
+    opacity: 0%;
+}
+
+
+.logos-nav .cart-conteiner i{
+    color: #d2d2d2;  
+}
+/* Aqui termina la barra de navegacion */
+
+.name-user > h2{
+    color: whitesmoke;
+}
+
+.dat > h3{
+    color: whitesmoke;
+}
+
+main{
+    height: auto;
+    width: auto;
+}
+
+.profile-section{
+    margin: 25px auto 25px;
+    width: 96%;
+    height: 750px;
+    gap: 10px;
+    background-color: #562c7e;
+    border-radius: 25px;
+    border: 1px solid rgb(98, 0, 128);
+}
+
+.banner-profile{
+    height: 20%;
+    background-color: #000000;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border: 2px solid black;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+}
+.banner-profile > img{
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.profile-bottom{
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+}
+
+.profile{
+    height: 380px;
+    width: 300px;
+    background-color: #361534;
+    /* margin: 25px 0 60px 35px; */
+    border-radius: 30px;
+    padding: 2%;
+    margin-top: 20px;
+    border: 1px solid whitesmoke;
+}
+
+.profile-central{
+    height: auto;
+    width: auto;
+    margin: 5% 0;
+    padding-left: 4%;
+}
+
+.profile-central .avatar{
+    width: 30%;
+    margin: 0 auto 5%;
+}
+
+.profile-central .name-user{
+    width: 100%;
+    margin: 0 auto 2%;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.avatar img{
+    width: 100%;
+}
+
+.dates{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2px;
+    height: auto;
+}
+
+.dat{
+    border: 1px solid rgb(255, 255, 255);
+    padding: 3%;
+    border-radius: 10px;
+    margin-bottom: 8%;
+}
+
+.option{
+    width: 95%;
+    border-radius: 15px;
+    border: 1px solid whitesmoke;
+    margin: 2% auto;
+    text-align: center;
+    padding: 2% 0;
+}
+
+.editProfile{
+    background-color: rgb(207, 187, 71);
+}
+
+.logOut{
+    background-color: rgb(180, 0, 0);
+}
+
+.button-destroy{
+    width: 95%;
+    border-radius: 10px;
+    padding: 1% 0;
+}
+
+.profile-branches{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.branch{
+    width: 150px;
+    height: 60px;
+    background-color: #707070;
+    /* margin: 0 10px; */
+    border-radius: 10px;
+}
+
+.branch1-content{
+    width: 90%;
+    height: auto;
+    margin: 5%;
+}
+
+.branch1-content > div{
+    text-align: center;
+}
+
+/* Aqui comienza el footer */
+footer{
+    background-color: #707070;
+    display: flex;
+    justify-content: space-around;
+    height: auto;
+    padding: 2% 0 2% ;
+}
+
+footer .follow{
+    width: 150px;
+}
+
+footer .follow i{
+    font-size: 25px;
+    margin: 2%;
+}
+
+.follow i:hover{
+    color: red;
+    /* transform: scale(1.5%); */
+}
+
+ul{
+    list-style-type: none;
+}
+/* Aqui termina el footer */

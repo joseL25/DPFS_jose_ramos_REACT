@@ -1,0 +1,66 @@
+<!DOCTYPE html>  
+<html lang="es">  
+    <%- include('../partials/head.ejs',{style:"detail"}) %>
+<body>  
+    
+    <%- include('../partials/nav-bar.ejs') %>
+
+    <% if (modelFound) { %>
+    <main>  
+        <div class="product-container">  
+                <div class="product-image">  
+                    <img src="/images/modelos/<%= modelFound.image %>" alt="<%= modelFound.name %>">  
+                </div>  
+                <div class="product-info">  
+                    <h1><%= modelFound.name %></h1>  
+                    <div class="stars-icon">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="description">
+                        <p><%= modelFound.description %></p>
+                    </div>
+                    <div class="button-action">
+                        <button class="download-button">Descargar</button>  
+                        <button class="add-cart-button">Agregar al carrito</button>  
+                    </div>
+                </div>  
+            <% if (locals.isLogged) { %>
+                <div class="option-data">
+                    <a class="edit-product" href="/products/edit/<%= modelFound.id %>"><i class="fa-solid fa-pen"></i></a>
+                    <% if (locals.isAdmin) { %>
+                        <form action="/products/delete/<%= modelFound.id %>?_method=DELETE" method="post">
+                            <button class="delete-product"><i class="fa-solid fa-trash"></i></button>
+                        </form>
+                    <% } %>
+                </div>
+            <% } %>
+            <!-- <div class="view-part"></div>
+            <div class="view-part"></div>
+            <div class="view-part"></div>
+            <div class="view-part"></div> -->
+        </div>  
+
+        <div class="comments-section">  
+            <!-- <h2>Comentarios</h2>   -->
+            <div class="tab-links">  
+                <h5>Comentarios</h5>  
+                <h5>Modelos similares</h5>  
+            </div>  
+            <input type="text" placeholder="Escribe un comentario..." class="comment-input">  
+            <input type="text" placeholder="Tu nombre..." class="name-input">  
+            <button class="submit-comment">Enviar</button>  
+        </div>  
+    </main>  
+    <% } else { %>
+        <main class="container">
+            <h1 class="error">El producto que buscas no existe</h1>
+            <img src="https://ih1.redbubble.net/image.3222161644.1186/st,small,507x507-pad,600x600,f8f8f8.jpg" alt="">
+        </main>
+    <% } %>
+    <%- include('../partials/footer.ejs') %>
+</body>  
+</html>

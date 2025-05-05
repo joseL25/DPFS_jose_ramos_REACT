@@ -1,0 +1,96 @@
+<!DOCTYPE html>  
+<html lang="es">  
+    <%- include('./partials/head.ejs',{style:"cart"}) %> 
+<body>  
+        <%- include('./partials/nav-bar.ejs') %> 
+
+    <main>  
+        <div class="cart-options">  
+            <div class="amount">
+                <div class="checkbox">
+                    <input type="checkbox" name="checkbox" id="checkbox">
+                </div>
+                <div class="label">
+                    <label for="checkbox">Modelos</label>
+                </div>
+            </div>
+            <div class="cart-icon">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+            <div class="amount">
+                <div class="arrow-down">
+                    <i class="fa-solid fa-angle-down"></i>
+                </div>
+                <div class="method-pay">
+                    <h4>Metodo de Pago</h4>
+                </div>
+            </div>
+        </div>  
+        
+        <div class="products">      
+            <div class="model-card">  
+                <div class="user-public">
+                    <i class="fa-solid fa-user"></i>
+                    <h3>user18947</h3>
+                </div>
+                <img class="model" src="images/seccion_uno/objetos-minimalistas.jpeg" alt="Modelo Similar">  
+                <div class="dat-inf">
+                    <div class="trash">
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+                    <div class="selection">
+                        <input type="checkbox" name="checkbox" id="checkbox">
+                    </div>
+                </div>
+            </div>  
+            <div class="model-card">  
+                <div class="user-public">
+                    <i class="fa-solid fa-user"></i>
+                    <h3>user18947</h3>
+                </div>
+                <img class="model" src="images/seccion_dos/arcade.jpg" alt="Modelo Similar">  
+                <div class="dat-inf">
+                    <div class="trash">
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+                    <div class="selection">
+                        <input type="checkbox" name="checkbox" id="checkbox">
+                    </div>
+                </div>
+            </div>  
+            <div class="model-card">  
+                <div class="user-public">
+                    <i class="fa-solid fa-user"></i>
+                    <h3>user18947</h3>
+                </div>
+                <img class="model" src="images/seccion_uno/ciudad-futurista.jpeg" alt="Modelo Similar">  
+                <div class="dat-inf">
+                    <div class="trash">
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+                    <div class="selection">
+                        <input type="checkbox" name="checkbox" id="checkbox">
+                    </div>
+                </div>
+            </div>
+            <div class="model-card">  
+                <div class="user-public">
+                    <i class="fa-solid fa-user"></i>
+                    <h3>user18947</h3>
+                </div>
+                <img class="model" src="images/seccion_dos/arcade.jpg" alt="Modelo Similar">  
+                <div class="dat-inf">
+                    <div class="trash">
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+                    <div class="selection">
+                        <input type="checkbox" name="checkbox" id="checkbox">
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </main>  
+
+    <%- include('./partials/footer.ejs') %> 
+</body>  
+</html>

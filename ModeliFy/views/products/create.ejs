@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs',{style:"create"}) %>
+
+<body>
+
+    <%- include('../partials/nav-bar.ejs') %>
+
+    <div class="content">
+        <h2 class="text" data-text="NUEVO MODELO 3D">NUEVO MODELO 3D</h2>
+    </div>
+    <main class="main">
+        <div class="cubo">
+            <img src="../images/cubo.png" alt="cubo">
+        </div>
+
+        <ul class="errors"></ul>
+        <form class="form-dat" action="/products/create" method="post" enctype="multipart/form-data" id="formulario" novalidate>
+            <div class="input-inf">
+                <div class="content-label">
+                    <label for="name">Nombre</label>
+                </div>
+                <div class="input-content">
+                    <input type="text" 
+                    name="name" 
+                    value="<%= locals.old?.name ? old.name : "" %>" 
+                    placeholder="modelo 3d" id="name" required>
+                    <% if (locals.errors?.name) { %>
+                        <p class="error"><%= locals.errors.name.msg %></p>
+                       <% } %> 
+                    <!-- <div class="error"></div> -->
+                </div>
+            </div>
+            <div class="input-inf">
+                <div class="content-label">
+                    <label for="description">Descripcion</label>
+                </div>
+                <div class="input-content">
+                    <textarea name="description" 
+                    id="description" placeholder="de que trata el modelo?"><%= locals.old?.description ? old.description : "" %></textarea><br>
+                    <% if (locals.errors?.description) { %>
+                        <p class="error"><%= locals.errors.description.msg %></p>
+                    <% } %> 
+                </div>
+            </div>
+            
+            <div class="input-inf">
+                <div class="content-label">
+                    <label for="price">Precio</label>
+                </div>
+                <div class="input-content">
+                    <input type="number" 
+                    name="price" 
+                    id="price" 
+                    value="<%= locals.old?.price ? old.price : "" %>" 
+                    placeholder="'0' si el modelo sera gratuito">
+                    <% if (locals.errors?.price) { %>
+                        <p class="error"><%= locals.errors.price.msg %></p>
+                    <% } %> 
+                </div>
+            </div>
+
+            <div class="input-inf">
+                <div class="content-label">
+                    <label for="category">categoria</label>
+                </div>
+                <div class="input-content">
+                    <select name="category" id="category">
+                        <option value="" selected disabled>tipo de modelo</option>
+                        <% categories.forEach(category => { %>
+                            <option value="<%= category.id %>" <%= locals.old?.category == category.id.toString() ? "selected" : "" %>><%= category.name %></option>
+                        <% }) %>
+                    </select>
+                    <% if (locals.errors?.category) { %>
+                        <p class="error"><%= locals.errors.category.msg %></p>
+                       <% } %> 
+                </div>
+            </div>
+
+            <div class="input-inf">
+                <div class="content-label">
+                    <label for="file">archivo</label>
+                </div>
+                <div class="input-content">
+                    <select name="file" id="file">
+                        <option value="" selected disabled>tipo de archivo</option>
+                        <% files.forEach(file => { %>
+                            <option value="<%= file.id %>" <%= locals.old?.file == file.id.toString() ? "selected" : "" %>><%= file.name %></option>
+                        <% }) %>
+                    </select>
+                    <% if (locals.errors?.file) { %>
+                        <p class="error"><%= locals.errors.file.msg %></p>
+                    <% } %> 
+                </div>
+            </div>
+            
+            <div class="input-inf">               
+                <div class="content-label">
+                    <label for="imagen">imagen</label>
+                </div>
+                <div class="input-content image">
+                    <input type="file" name="imagen" id="imagen">
+                </div>                
+            </div>
+
+            <div class="send">
+                <!-- <button type="submit">SUBIR MODELO</button> -->
+                <input type="submit" value="SUBIR MODELO">
+            </div>
+        </form>
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
+    <!-- scripts JS -->
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    <script src="/js/validaciones/create.js"></script>
+</body>
+
+</html>

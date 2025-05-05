@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs',{style:"admin"}) %>
+<body>
+    <%- include('./partials/nav-bar.ejs') %>
+    <main>
+        <div class="dashboard">
+          <header>
+            <h1>Panel de Administración</h1>
+            <p>Bienvenido, administrador. Aquí puedes gestionar los modelos 3D y revisar estadísticas.</p>
+          </header>
+          
+          <section class="statistics">
+            <h2>Estadísticas</h2>
+            <div class="stats-cards">
+              <div class="card">
+                <h3>Modelos Totales</h3>
+                <p>150</p>
+              </div>
+              <div class="card">
+                <h3>Usuarios Registrados</h3>
+                <p>2,430</p>
+              </div>
+              <div class="card">
+                <h3>Descargas Totales</h3>
+                <p>18,540</p>
+              </div>
+              <div class="card">
+                <h3>Suscripciones</h3>
+                <p>150</p>
+              </div>
+            </div>
+          </section>
+          
+          <%- include('./partials/adminP.ejs') %>
+        </div>
+      </main>
+      <%- include('./partials/footer.ejs') %>
+</body>
+</html>

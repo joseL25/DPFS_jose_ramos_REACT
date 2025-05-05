@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs',{style:"edit"}) %>
+
+<body>
+
+    <%- include('../partials/nav-bar.ejs') %>
+
+    <div class="content">
+        <h2 class="text" data-text="EDITANDO <%= modelEdit.name %>">EDITANDO <%= modelEdit.name %></h2>
+    </div>
+    <main class="main">
+        <div class="cubo">
+            <img src="/images/cubo.png" alt="cubo">
+        </div>
+        <ul class="errors"></ul>
+        <form class="form-dat" action="/products/edit/<%= modelEdit.id %>?_method=PUT" method="post" enctype="multipart/form-data">
+            <div class="input-inf">
+                <div class="content-label">
+                    <label for="name">Nombre</label>
+                </div>
+                <div class="input-content">
+                    <input type="text" 
+                    value="<%= locals.old?.name ? old.name : "" %>" 
+                    name="name" 
+                    placeholder="<%= modelEdit.name %>" 
+                    id="name">
+                    <% if (locals.errors?.name) { %>
+                        <p class="error"><%= locals.errors.name.msg %></p>
+                    <% } %>
+                </div>
+            </div>
+            <div class="input-inf">
+                <div class="content-label">
+                    <label for="description">Descripcion</label>
+                </div>
+                <div class="input-content">
+                    <textarea name="description" 
+                    id="description" 
+                    placeholder="de que trata el modelo?"><%= locals.old?.description ? old.description : "" %></textarea><br>
+                    <% if (locals.errors?.description) { %>
+                        <p class="error"><%= locals.errors.description.msg %></p>
+                    <% } %>
+                </div>
+            </div>
+            
+            <div class="input-inf">
+                <div class="content-label">
+                    <label for="price">Precio</label>
+                </div>
+                <div class="input-content">
+                    <input type="number" 
+                    value="<%= locals.old?.price ? old.price : "" %>" 
+                    name="price" 
+                    id="price" 
+                    placeholder="<%= modelEdit.price %>">
+                    <% if (locals.errors?.price) { %>
+                        <p class="error"><%= locals.errors.price.msg %></p>
+                    <% } %> 
+                </div>
+            </div>
+
+            <div class="input-inf">
+                <div class="content-label">
+                    <label for="category">categoria</label>
+                </div>
+                <div class="input-content">
+                    <select name="category" id="category">
+                        <option value="" selected disabled>tipo de modelo</option>
+                        <% categories.forEach(item => { %>
+                            <option value="<%= item.id %>" <%= modelEdit.category_id == item.id ? "selected" : "" %>>
+                                <%= item.name %>
+                            </option>
+                        <% }) %>
+                    </select>
+                    <% if (locals.errors?.category) { %>
+                        <p class="error"><%= locals.errors.category.msg %></p>
+                    <% } %> 
+                </div>
+            </div>
+
+            <div class="input-inf">
+                <div class="content-label">
+                    <label for="file">archivo</label>
+                </div>
+                <div class="input-content">
+                    <select name="file" id="file">
+                        <option value="" selected disabled>tipo de archivo</option>
+                        <% files.forEach(item => { %>
+                            <option value="<%= item.id %>" <%= modelEdit.file_id == item.id ? "selected" : ""%>>
+                                <%= item.name %>
+                            </option>
+                        <% }) %>
+                    </select>
+                    <% if (locals.errors?.file) { %>
+                        <p class="error"><%= locals.errors.file.msg %></p>
+                    <% } %> 
+                </div>
+            </div>
+            
+            <div class="input-inf">               
+                <div class="content-label">
+                    <label for="imagen">imagen</label>
+                </div>
+                <div class="input-content image">
+                    <input type="file" name="imagen" id="imagen" accept="imagen/*">
+                </div>                
+            </div>
+
+            <div class="send">
+                <!-- <button type="submit">EDITAR</button> -->
+                <input type="submit" value="EDITAR">
+            </div>
+        </form>
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
+    <!-- scripts JS -->
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    <script src="/js/validaciones/editProduct.js"></script>
+</body>
+
+</html>

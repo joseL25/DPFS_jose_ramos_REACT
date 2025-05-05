@@ -1,0 +1,30 @@
+<nav class="nav-bar">
+    <div class="log-page">
+        <a href="/">
+            <img class="icon-logo-page" src="/logs/LogoPrincipal.png" alt="logo de la pagina">
+        </a>
+    </div>
+    <form>
+        <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input class="search-input" type="text" placeholder="Buscar...">
+        </div>
+    </form>
+
+    <div class="logos-nav">
+        <a class="cart-conteiner" href="/cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+        </a>
+        <% if (locals.isLogged) { %>
+            <a class="user-content" href="/users/profile">
+                <i class="fa-solid fa-circle-user"></i>
+                <h3>mi cuenta</h3>
+            </a>
+        <% } else { %>
+        <a class="user-content" href="/users/login">
+            <i class="fa-solid fa-circle-user"></i>
+            <h3>mi cuenta</h3>
+        </a>
+        <% } %>
+    </div>
+</nav>

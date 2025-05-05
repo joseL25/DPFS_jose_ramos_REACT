@@ -1,0 +1,164 @@
+* {  
+    box-sizing: border-box;
+    margin: 0;  
+    padding: 0;  
+}  
+
+body {  
+    /* background-color: #322c36;  */
+    background-color: #000000; 
+    color: #fff; 
+    /* width: 100%; */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}  
+
+a{
+    text-decoration: none;
+}
+
+.container {  
+    /* display: flex;   */
+    /* flex-direction: column; */
+    /* align-items: center;   */
+    /* justify-content: center;   */
+    height: auto; 
+    width: 40%;
+}  
+
+.form-container{
+    align-content: center;
+}
+
+.avatar-profile{
+    margin-bottom: 10px;
+}
+
+.avatar-image{
+    width: 150px;
+    margin: 0 auto;
+}
+
+.avatar-image img{
+    width: 100%;
+    border: 2px solid rgb(129, 73, 108);
+    border-radius: 50%;
+}
+
+
+
+h1 {  
+    margin-bottom: 20px;  
+}  
+
+.form-container {  
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a; /* Gris claro */  
+    height: auto;
+    width: 100%;
+    padding: 20px 20px 5px 20px;  
+    border-radius: 50px;  
+    text-align: center;  
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);  */
+    box-shadow: 0 0px 20px rgb(87, 0, 128);
+    border: 2px solid rgb(87, 0, 128);
+}
+
+h2 {  
+    margin-bottom: 15px;  
+}
+
+p {  
+    margin-bottom: 20px;  
+}
+
+.error{
+    position: relative;
+    bottom: 18px;
+    color: red;
+    text-shadow: 0 0px 10px rgb(175, 2, 7);
+}
+
+.display-errors{
+    width: 80%;
+    margin: 0 auto;
+    padding: 5px;
+    background-color: rgba(255, 0, 0, 0.356);
+    list-style: none;
+    opacity: 0.66;
+    border: 1px solid red;
+    border-radius: 15px;
+    box-shadow: 0 0px 20px rgb(177, 1, 1);
+}
+
+/* .errors::before{
+    border: 1px solid red;
+    opacity: 1;
+} */
+
+/* .errors li{
+    color: black;
+} */
+
+label {  
+    display: block;  
+    margin: 10px 0 5px; /* Espacio entre la etiqueta y el campo */  
+}
+
+input {  
+    width: 50%;  
+    padding: 10px;  
+    margin-bottom: 20px;  
+    border: 1px solid #ccc;  
+    border-radius: 10px;  
+}
+
+#password{
+    margin-bottom: 5px;
+}
+
+/* input[type='password']{} */
+span{
+    /* border: 1px solid white; */
+    display: block;
+    width: 20%;
+    margin: auto 45% auto 55%;
+}
+
+input:focus {  
+    outline: none;  
+    border-color: #67539c; /* Cambia el borde al enfocarse */  
+    border: 2px solid;
+}
+
+.login-button, .register-button {  
+    background-color: #000; /* Negro */  
+    color: #fff; /* Texto blanco */  
+    border: none;  
+    padding: 10px 20px;  
+    border-radius: 5px;  
+    cursor: pointer;  
+}
+
+.login-button:hover, .register-button:hover {  
+    background-color: #444; /* Gris oscuro al pasar el mouse */  
+}
+
+.register-button {  
+    margin-top: 10px; /* Espacio entre los botones */  
+}
+
+.options{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(226, 203, 253);
+    /* margin: 10px 0; */
+}

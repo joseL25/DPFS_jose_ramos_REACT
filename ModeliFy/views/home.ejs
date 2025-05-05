@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs',{style:"home"}) %>
+
+    <body>
+            <%- include('./partials/nav-bar.ejs') %>
+
+        <section class="first-piece">
+            <video class="videoFirst-piece" autoplay loop muted>
+                <source src="videos/videoSeccion1_op02.mp4" type="video/mp4">
+            </video>
+            <div class="title">
+                <h1>BIENVENIDO</h1>
+                <% if (locals.isLogged) { %>
+                    <% if (locals.isAdmin) { %>
+                        <a class="a-admin" href="/admin">Administrar</a>
+                    <% } %>
+                <% } %>
+            </div>
+
+        </section>
+
+        <section class="second-piece">
+
+            <form>
+                <select name="modelos" id="modelos">
+                    <option value="">tipos de modelos</option>
+                    <option value="">estructuras</option>
+                    <option value="">personajes</option>
+                    <option value="">naturaleza</option>
+                    <option value="">accesorios</option>
+                    <option value="">ciencia ficcion</option>
+                </select>
+                <select name="fecha de publicacion" id="publicacion">
+                    <option value="">fecha de publicacion</option>
+                    <option value="">ultimo dia</option>
+                    <option value="">ultima semana</option>
+                    <option value="">ultimo mes</option>
+                    <option value="">ultimo año</option>
+                    <option value="">en cualquier momento</option>
+                </select>
+                <input type="submit" value="Buscar" id="search">
+            </form>
+        </section>
+        <main class="products">
+
+            <% models.forEach(model => { %>
+            
+                <div class="product-content">
+                    <div class="product-dat-sup">
+                        <div class="user-public">
+                            <i class="fa-solid fa-user"></i>
+                            <h3>
+                                usuario
+                            </h3>
+                        </div>
+                        <div class="heart">
+                            <i class="fa-regular fa-heart"></i>
+                        </div>
+                    </div>
+                    
+                    <a href="/products/detail/<%= model.id %>">
+                        <img class="model" src="./images/modelos/<%= model.image %>" alt="<%= model.name %>">
+                    </a>
+                    <div class="product-dat-inf">
+                        <i class="fa-solid fa-cart-plus"></i>
+                        <h3 class="camara-title">
+                            <%= model.name %>
+                        </h3>
+                        <h3 class="camara-price">$<%= model.price %></h3>
+                    </div>
+                </div>
+
+            <% }) %>
+
+        </main>
+
+        <!-- <section class="carousel-section">
+            <h1 class="section-title">Explora Nuestros Modelos 3D</h1>
+            <div class="carousel-container">
+              <div class="carousel">
+                <div class="carousel-item">
+                  <img src="images/seccion_dos/arcade.jpg" alt="Modelo 3D 1">
+                </div>
+                <div class="carousel-item">
+                  <img src="images/seccion_dos/perlaNegra.jpg" alt="Modelo 3D 2">
+                </div>
+                <div class="carousel-item">
+                  <img src="images/seccion_dos/brazo-robotico.jpg" alt="Modelo 3D 3">
+                </div>
+                <div class="carousel-item">
+                  <img src="images/seccion_dos/mini-astronauta.jpg" alt="Modelo 3D 4">
+                </div>
+                <div class="carousel-item">
+                  <img src="images/seccion_dos/dragon.png" alt="Modelo 3D 5">
+                </div>
+              </div>
+            </div>
+          </section> -->
+        <section class="carrusel-section">
+            <p>CARRUSEL EN PROCESO....</p>
+        </section>
+        <section class="newsletter-container">
+            <div class="image-grid">
+                <div class="grid">
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                </div>
+            </div>
+
+            <div class="form-container">
+                <h2>Sumate a nuestro Newsletter</h2>
+                <form class="newsletter">
+                    <input type="text" name="name" placeholder="nombre" required>
+                    <input type="text" name="lastname" placeholder="apellido" required>
+                    <input type="email" name="email" id="email" placeholder="correo">
+                    <button type="submit">ENVIAR</button>
+                </form>
+            </div>
+        </section>
+
+        <%- include('./partials/footer.ejs') %>
+        <script src="/js/home.js"></script>
+    </body>
+
+</html>
