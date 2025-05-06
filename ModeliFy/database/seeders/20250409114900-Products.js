@@ -12,7 +12,7 @@ module.exports = {
         price: '15',
         category: 'solido',
         file: 'STL',
-        image: 'http://localhost:3000/images/predeterminado/cohete.jpg'
+        image: 'cohete.jpg'
       },
 
     ], {});
