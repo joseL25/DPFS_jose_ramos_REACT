@@ -13,6 +13,7 @@ const port = 3000;
 // const morgan = require('morgan');
 // app.use(morgan('tiny'));
 
+// Renders
 const indexRouter = require("./routes/index.routes");
 const usersRoutes = require('./routes/users.routes');
 const productsRoutes = require('./routes/products.routes');
@@ -20,6 +21,10 @@ const userLogged = require('./middlewares/userLogged');
 // const adminsRoutes = require('./routes/admin.routes');
 const db = require('./database/models');
 // const { title } = require('process');
+
+// API routes
+const usersApiRoutes = require('./routes/API/users.API.routes');
+const productsApiRoutes = require('./routes/API/products.API.routes');
 
 // ejs config
 app.set('view engine', 'ejs');

@@ -3,8 +3,9 @@ const db = require('../database/models')
 const usersControllers = {
     getUsers: async(req,res)=>{
         try {
-            await db.User.findAll();
-            res.JSON({
+            const users = await db.User.findAll();
+
+            res.json({
                 count: users.length,
                 users: users,
             });
