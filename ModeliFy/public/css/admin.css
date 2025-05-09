@@ -99,6 +99,10 @@ main{
     font-family: 'Roboto', sans-serif;
     min-height: 100vh; /* Asegura que ocupe toda la pantalla */
 }
+
+.back i{
+    font-size: 40px;
+}
   
 .dashboard header{
     text-align: center;

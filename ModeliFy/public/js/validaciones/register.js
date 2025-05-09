@@ -27,7 +27,7 @@ window.onload = ()=>{
             errors.push('Password: Credencial Incorrecta');
         }
 
-        if(!validator.isLength(password, {min: 6})){
+        if(!validator.isLength(password, {min: 8})){
             errors.push('Password: Debe tener al menos 6 caracteres');
         }
 

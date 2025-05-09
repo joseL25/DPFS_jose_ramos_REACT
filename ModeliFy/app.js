@@ -5,22 +5,15 @@ const app = express();
 const session = require("express-session");
 const cookieParser = require('cookie-parser');
 const guestAuth = require("./middlewares/guestAuth");
-
-
 const port = 3000;
-
-//LOGS de las peticiones
-// const morgan = require('morgan');
-// app.use(morgan('tiny'));
 
 // Renders
 const indexRouter = require("./routes/index.routes");
 const usersRoutes = require('./routes/users.routes');
 const productsRoutes = require('./routes/products.routes');
 const userLogged = require('./middlewares/userLogged');
-// const adminsRoutes = require('./routes/admin.routes');
+
 const db = require('./database/models');
-// const { title } = require('process');
 
 // API routes
 const usersApiRoutes = require('./routes/API/users.API.routes');
@@ -42,16 +35,15 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
-
-
 //userLogged
 app.use(userLogged);
-
 
 app.use("/",indexRouter);
 app.use("/products", productsRoutes);
 app.use("/users", usersRoutes);
-//app.use("/admin", adminsRoutes);
+
+app.use("/api/users", usersApiRoutes);
+app.use("/api/products", productsApiRoutes);
 
 // vista del carrito
 app.get('/cart', guestAuth,(req,res)=>{
@@ -59,8 +51,10 @@ app.get('/cart', guestAuth,(req,res)=>{
 });
 
 app.get('/admin', async(req,res)=>{
-    const modelSeed = await db.Product.findByPk(req.params.id);
-    res.render('admin.ejs',{ modelSeed });
+    const models = await db.Product.findAll(
+        {include:["categories","files"]}
+    );
+    res.render('admin.ejs',{ models });
 })
 
 app.use(function(req,res){
