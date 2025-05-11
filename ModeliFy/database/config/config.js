@@ -1,9 +1,11 @@
+require('dotenv').config();
+
 module.exports = {
   "development": {
-    "username": "jose1032",
-    "password": "qb8]£t~^Mcya-TA[68;r",
-    "database": "jose1032_modelify",
-    "host": "mysql-jose1032.alwaysdata.net",
+    "username": process.env.DB_USER,
+    "password": process.env.DB_PASSWORD,
+    "database": process.env.DB_NAME,
+    "host": process.env.DB_HOST,
     "dialect": "mysql"
   },
   "test": {
