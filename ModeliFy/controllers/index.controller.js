@@ -8,7 +8,7 @@ const indexController = {
     gethome: async(req,res)=>{
         try {
             const models = await db.Product.findAll(
-                {include:["categories","files"]}
+                {include:["category","file"]}
             );
             // console.log(productsDB);
     

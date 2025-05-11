@@ -1,3 +1,5 @@
+// const Category = require('./Category');
+
 module.exports = (sequelize, DataTypes)=> {
 
     const alias = 'Product'
@@ -15,26 +17,27 @@ module.exports = (sequelize, DataTypes)=> {
         price: {
             type: DataTypes.INTEGER(11)
         },
-        category: {
-            type: DataTypes.STRING(255)
-        },
-        file: {
-            type: DataTypes.STRING(100)
-        },
+        // category: {
+        //     type: DataTypes.STRING(255)
+        // },
+        // file: {
+        //     type: DataTypes.STRING(100)
+        // },
         image: {
             type: DataTypes.STRING
         },
-        category_id:{
-            type: DataTypes.INTEGER(11)
-        },
-        file_id:{
-            type: DataTypes.INTEGER(11)
-        }
+        // category_id:{
+        //     type: DataTypes.INTEGER(11)
+        // },
+        // file_id:{
+        //     type: DataTypes.INTEGER(11)
+        // }
     }
 
     const config = {
         tableName: 'products',
         paranoid: true,
+        timestamps:false
     }
 
     const Product = sequelize.define(alias, cols, config);
@@ -42,15 +45,15 @@ module.exports = (sequelize, DataTypes)=> {
     Product.associate = (model)=>{
         // Categorias
         Product.belongsTo(model.Category, {
-            as: "categories",
+            as: "category",
             foreignKey: "category_id"
         })
         // File
         Product.belongsTo(model.File, {
-            as: "files",
+            as: "file",
             foreignKey: "file_id"
         })
     };
 
-    return Product
+    return Product;
 }

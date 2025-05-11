@@ -10,8 +10,8 @@ module.exports = {
         name: 'cohete',
         description: 'Inspirado en los viajes interestelares',
         price: '15',
-        category: 'solido',
-        file: 'STL',
+        category_id: 2,
+        file_id: 3,
         image: 'cohete.jpg'
       },
       {
@@ -19,8 +19,8 @@ module.exports = {
         name: 'arcade',
         description: 'descripcion de un arcade modelado en 3D',
         price: '23',
-        category: 'solido',
-        file: 'STL',
+        category_id: 2,
+        file_id: 3,
         image: 'arcade.jpg'
       },
       {
@@ -28,8 +28,8 @@ module.exports = {
         name: 'camara',
         description: 'descripcion de una camara modelada en 3D',
         price: '28',
-        category: 'procedimental',
-        file: 'STL',
+        category_id: 4,
+        file_id: 3,
         image: 'camara.jpg'
       },
       {
@@ -37,8 +37,8 @@ module.exports = {
         name: 'astronauta',
         description: 'Descripcion de un astronauta',
         price: '40',
-        category: 'solido',
-        file: 'STL',
+        category_id: 2,
+        file_id: 3,
         image: 'astronauta.jpg'
       },
 

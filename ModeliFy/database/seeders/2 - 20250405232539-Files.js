@@ -5,11 +5,26 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert(
       'files', [
-      {name: 'OBJ'},
-      {name: 'FBX'},
-      {name: 'STL'},
-      {name: 'IGES'},
-      {name: 'AMF'},
+      {
+        id: 1,
+        name: 'OBJ'
+      },
+      {
+        id: 2,
+        name: 'FBX'
+      },
+      {
+        id: 3,
+        name: 'STL'
+      },
+      {
+        id: 4,
+        name: 'IGES'
+      },
+      {
+        id: 5,
+        name: 'AMF'
+      },
     ], {});
     
   },

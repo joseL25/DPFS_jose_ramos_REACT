@@ -3,7 +3,23 @@ const db = require('../../database/models');
 const usersControllers = {
     getUsers: async(req,res)=>{
         try {
-            const users = await db.User.findAll({attributes:{exclude:["password"]}});
+            let users = await db.User.findAll({
+                attributes:{exclude:["password"]},
+                raw:true
+            });
+
+            // const usersMaps = users.map(user => {
+            //     return {
+            //         ...user,
+            //         urlAvatar:`http://localhost:3000/images/avatar/profiles/${user.avatar}`,
+            //         url:`http://localhost:3000/api/users/profile/${user.id}`
+            //     }
+            // });
+
+            users.forEach(user => {
+                user.urlAvatar = `http://localhost:3000/images/avatar/profiles/${user.avatar}`;
+                user.url = `http://localhost:3000/api/users/profile/${user.id}`;
+            });
 
             res.json({
                 count: users.length,

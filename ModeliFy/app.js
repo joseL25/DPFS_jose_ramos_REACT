@@ -52,7 +52,7 @@ app.get('/cart', guestAuth,(req,res)=>{
 
 app.get('/admin', async(req,res)=>{
     const models = await db.Product.findAll(
-        {include:["categories","files"]}
+        {include:["category","file"]}
     );
     res.render('admin.ejs',{ models });
 })

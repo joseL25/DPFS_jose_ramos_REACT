@@ -1,11 +1,14 @@
 const db = require("../../database/models");
 
-// const modelsPath = path.join(__dirname, '..', 'data', 'products.json');
-
 module.exports = {
     detail: async(req, res) => {
         try {
-            let model = await db.Product.findByPk(req.params.id, {include:["categories","files"]});
+            let model = await db.Product.findByPk(req.params.id, {
+                include:["category","file"],
+                attributes:{
+                    exclude:["category_id","file_id"]
+                }
+            });
             
             res.json(model) 
         } catch (error) {
@@ -14,7 +17,18 @@ module.exports = {
     },
     products: async(req,res)=>{
         try {
-            const models = await db.Product.findAll();
+            let models = await db.Product.findAll({
+                include:["category","file"],
+                attributes:{
+                    exclude:["category_id","file_id"]
+                },
+                raw: true
+            });
+
+            models.forEach(model => {
+                model.imageUrl = `http://localhost:3000/images/modelos/${model.image}`;
+                model.url = `http://localhost:3000/api/products/detail/${model.id}`;
+            });
             
             res.json({
                 count: models.length,

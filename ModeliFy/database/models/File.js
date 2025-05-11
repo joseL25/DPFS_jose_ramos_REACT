@@ -13,7 +13,8 @@ module.exports = (sequelize, DataTypes)=> {
 
     const config = {
         tableName: 'files',
-        timestamps: false
+        timestamps: false,
+        paranoid:false
     }
 
     const File = sequelize.define(alias, cols, config);
@@ -25,5 +26,5 @@ module.exports = (sequelize, DataTypes)=> {
         })
     };
 
-    return File
+    return File;
 }
