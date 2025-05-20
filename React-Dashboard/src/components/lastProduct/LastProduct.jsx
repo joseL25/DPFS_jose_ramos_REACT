@@ -1,6 +1,7 @@
 // import React from 'react'
 import { useState, useEffect } from "react";
-import {Product} from '../product/Product'
+import {Product} from '../product/Product';
+import './last.css'
 
 export const LastProduct = () => {
   const [model, setModel] = useState(null);
@@ -11,7 +12,7 @@ export const LastProduct = () => {
       .catch((e) => console.log(e));
   }, []);
   return (
-    <div>
+    <div className="last">
       <div>Ultimo producto agregado</div>
       {model ? (
         <Product model={model}/>

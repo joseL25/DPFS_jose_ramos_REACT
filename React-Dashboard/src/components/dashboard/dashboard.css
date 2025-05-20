@@ -1,0 +1,24 @@
+.container-dashboard{
+    /* border: 1px solid white; */
+    margin: 20px 10px;
+    height: 700px;
+    display: flex;
+}
+
+.left-navbar{
+    border: 1px solid rgba(255, 255, 255, 0.178);
+    border-radius: 15px;
+    width: 20%;
+    background-color: rgba(255, 255, 255, 0.103);
+    /* margin: 20px 0 0 10px; */
+}
+
+.dash-CC{
+    width: 70%;
+    margin: 20px;
+}
+
+.count-last{
+    display: flex;
+    gap: 20px;
+}

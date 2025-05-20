@@ -11,7 +11,12 @@ module.exports = {
                 }
             });
 
-            res.json(model)
+            const modelDetail = model.toJSON();
+
+            // Agregar campos adicionales
+            modelDetail.imageUrl = `http://localhost:3000/images/modelos/${model.image}`;
+
+            res.json(modelDetail);
         } catch (error) {
             console.log(error);
         }
@@ -76,7 +81,12 @@ module.exports = {
                 order: [['id', 'DESC']]
             });
 
-            res.json(model)
+            const lastModel = model.toJSON();
+
+            // Agregar campos adicionales
+            lastModel.imageUrl = `http://localhost:3000/images/modelos/${model.image}`;
+
+            res.json(lastModel)
         } catch (error) {
             console.log(error);
         }

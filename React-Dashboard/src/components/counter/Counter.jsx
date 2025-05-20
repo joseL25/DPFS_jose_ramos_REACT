@@ -1,6 +1,7 @@
 // import React from 'react'
 // import './Catalog.css';
 import { useState, useEffect } from "react";
+import './counter.css'
 
 export const Counter = () => {
   const [models, setModels] = useState([]);
@@ -27,8 +28,8 @@ export const Counter = () => {
       {models && categories ? (
         <>
           <div>
-            <h4>items totales</h4>
-            <ul>
+            <h4 className="list-title">items totales</h4>
+            <ul className="list-count">
               <li>productos: {models.count}</li>
               <li>usuarios: {users.count}</li>
               <li>categorias: {categories.count}</li>
