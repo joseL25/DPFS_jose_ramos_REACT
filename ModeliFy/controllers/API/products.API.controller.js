@@ -1,42 +1,84 @@
+const { where } = require("sequelize");
 const db = require("../../database/models");
 
 module.exports = {
-    detail: async(req, res) => {
+    detail: async (req, res) => {
         try {
             let model = await db.Product.findByPk(req.params.id, {
-                include:["category","file"],
-                attributes:{
-                    exclude:["category_id","file_id"]
+                include: ["category", "file"],
+                attributes: {
+                    exclude: ["category_id", "file_id"]
                 }
             });
-            
-            res.json(model) 
+
+            res.json(model)
         } catch (error) {
             console.log(error);
         }
     },
-    products: async(req,res)=>{
+    products: async (req, res) => {
         try {
             let models = await db.Product.findAll({
-                include:["category","file"],
-                attributes:{
-                    exclude:["category_id","file_id"]
+                include: ["category", "file"],
+                attributes: {
+                    exclude: ["category_id", "file_id"]
                 },
-                raw: true
+                // raw: true
             });
 
-            models.forEach(model => {
-                model.imageUrl = `http://localhost:3000/images/modelos/${model.image}`;
-                model.url = `http://localhost:3000/api/products/detail/${model.id}`;
+            const modelUrls = models.map(model => {
+                return {
+                    ...model.toJSON(),
+                    imageUrl: `http://localhost:3000/images/modelos/${model.image}`,
+                    url: `http://localhost:3000/api/products/detail/${model.id}`,
+                }
             });
-            
+
+            let countByCategory = await db.Product.findAll({
+                attributes: [
+                    "category_id",
+                    [db.sequelize.fn("COUNT", db.sequelize.col("Product.id")), "count"],
+                ],
+                include: [
+                    {
+                        model: db.Category,
+                        as: "category",
+                        attributes: ["name"],
+                    },
+                ],
+                group: ["category_id", "category.id"],
+                raw: true,
+            });
+
+            // Transformar a objeto
+            let countObject = {};
+            countByCategory.forEach((item) => {
+                countObject[item["category.name"]] = parseInt(item.count);
+            });
+
             res.json({
-                count: models.length,
-                models: models,
+                count: modelUrls.length,
+                countByCategory: countObject,
+                models: modelUrls,
             })
         } catch (error) {
             console.log(error);
-            
+
         }
-    }
+    },
+    lastProduct: async (req, res) => {
+        try {
+            let model = await db.Product.findOne({
+                include: ["category", "file"],
+                attributes: {
+                    exclude: ["category_id", "file_id"]
+                },
+                order: [['id', 'DESC']]
+            });
+
+            res.json(model)
+        } catch (error) {
+            console.log(error);
+        }
+    },
 }

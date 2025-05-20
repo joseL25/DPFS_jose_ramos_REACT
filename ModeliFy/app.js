@@ -5,7 +5,10 @@ const app = express();
 const session = require("express-session");
 const cookieParser = require('cookie-parser');
 const guestAuth = require("./middlewares/guestAuth");
+const cors = require('cors');
+
 const port = 3000;
+
 
 // Renders
 const indexRouter = require("./routes/index.routes");
@@ -18,6 +21,10 @@ const db = require('./database/models');
 // API routes
 const usersApiRoutes = require('./routes/API/users.API.routes');
 const productsApiRoutes = require('./routes/API/products.API.routes');
+const categoriesApiRoutes = require('./routes/API/categories.API.routes');
+
+// Permitir solicitudes desde el frontend
+app.use(cors());
 
 // ejs config
 app.set('view engine', 'ejs');
@@ -44,6 +51,7 @@ app.use("/users", usersRoutes);
 
 app.use("/api/users", usersApiRoutes);
 app.use("/api/products", productsApiRoutes);
+app.use("/api/categories", categoriesApiRoutes);
 
 // vista del carrito
 app.get('/cart', guestAuth,(req,res)=>{

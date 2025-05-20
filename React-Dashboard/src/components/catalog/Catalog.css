@@ -1,0 +1,43 @@
+.container-catalog{
+    display: flex;
+    gap: 15px;
+}
+
+.left-navbar{
+    border: 1px solid white;
+    width: 20%;
+    /* margin: 20px 0 0 10px; */
+}
+
+.container-catalog{
+    border: 1px solid white;
+    margin: 20px 10px;
+    height: 400px;
+}
+
+.catalog-info{
+    width: 80%;
+    border: 1px solid white;
+    
+}
+
+.models-content{
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid white;
+}
+
+.model{
+    width: 25%;
+    border: 1px solid white;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+.image-model img{
+    width: 100%;
+}
+
+.image-model{
+    width: 100%;
+}
