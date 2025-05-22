@@ -25,8 +25,8 @@
                         <input type="text" 
                         name="name" 
                         id="name" 
-                        placeholder="<%= user.name %>" 
-                        value="<%= locals.old?.name ? old.name : "" %>">
+                        placeholder="<%= locals.old?.name ? old.name : "" %>" 
+                        value="<%= user.name %>">
                         <% if (locals.errors?.name) { %>
                             <p class="error"><%= locals.errors.name.msg %></p>
                         <% } %>
@@ -35,8 +35,8 @@
                         <input type="text" 
                         name="lastname" 
                         id="lastname" 
-                        placeholder="<%= user.lastname %>" 
-                        value="<%= locals.old?.lastname ? old.lastname : "" %>">
+                        placeholder="<%= locals.old?.lastname ? old.lastname : "" %>" 
+                        value="<%= user.lastname %>">
                         <% if (locals.errors?.lastname) { %>
                             <p class="error"><%= locals.errors.lastname.msg %></p>
                         <% } %> 
@@ -48,8 +48,8 @@
                     <input type="email" 
                     name="email" 
                     id="email" 
-                    placeholder="<%= user.email %>" 
-                    value="<%= locals.old?.email ? old.email : "" %>">
+                    placeholder="<%= locals.old?.email ? old.email : "" %>" 
+                    value="<%= user.email %>">
                     <% if (locals.errors?.email) { %>
                         <p class="error"><%= locals.errors.email.msg %></p>
                     <% } %>

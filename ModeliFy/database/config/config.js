@@ -7,7 +7,7 @@ module.exports = {
     "database": process.env.DB_NAME,
     "host": process.env.DB_HOST,
     "dialect": "mysql"
-  },
+  },// en mi caso yo pase la base de datos a alwaysdt
   "test": {
     "username": "root",
     "password": null,

@@ -22,9 +22,9 @@
                 </div>
                 <div class="input-content">
                     <input type="text" 
-                    value="<%= locals.old?.name ? old.name : "" %>" 
+                    value="<%= modelEdit.name %>" 
                     name="name" 
-                    placeholder="<%= modelEdit.name %>" 
+                    placeholder="nombre" 
                     id="name">
                     <% if (locals.errors?.name) { %>
                         <p class="error"><%= locals.errors.name.msg %></p>
@@ -38,7 +38,7 @@
                 <div class="input-content">
                     <textarea name="description" 
                     id="description" 
-                    placeholder="de que trata el modelo?"><%= locals.old?.description ? old.description : "" %></textarea><br>
+                    placeholder="descripcion del modelo"><%= modelEdit.description %></textarea><br>
                     <% if (locals.errors?.description) { %>
                         <p class="error"><%= locals.errors.description.msg %></p>
                     <% } %>
@@ -51,10 +51,10 @@
                 </div>
                 <div class="input-content">
                     <input type="number" 
-                    value="<%= locals.old?.price ? old.price : "" %>" 
-                    name="price" 
-                    id="price" 
-                    placeholder="<%= modelEdit.price %>">
+                    value="<%= modelEdit.price %>" 
+                    name="price"
+                    id="price"
+                    placeholder="precio del modelo">
                     <% if (locals.errors?.price) { %>
                         <p class="error"><%= locals.errors.price.msg %></p>
                     <% } %> 

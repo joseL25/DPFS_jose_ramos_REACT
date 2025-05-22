@@ -15,12 +15,7 @@ export const Catalog = () => {
     return (
         <>
             {models ? (
-                <>
-                    {/* <div className="prod-dat"> */}
-                        {/* <div className="last-Product"></div> */}
-                        {/* <div className="model-Select">modelo seleccionado</div> */}
-                    {/* </div> */}
-                    <div className="models-content">
+                <div className="models-content">
                         {models.map(m => (
                             <div key={m.id} className='model lastM'>
                                 <h4>{m.name}</h4>
@@ -32,8 +27,7 @@ export const Catalog = () => {
                                 <p>${m.price}</p>
                             </div>
                         ))}
-                    </div>
-                </>
+                </div>
             ) : (
                 <p>Cargando...</p>
             )}

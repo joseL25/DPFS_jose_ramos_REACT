@@ -9,7 +9,7 @@ const { log } = require("console");
 // const modelsPath = path.join(__dirname, '..', 'data', 'products.json');
 
 module.exports = {
-    product: async(req, res) => {
+    product: async(req, res) => { // vista del producto
         try {
             const modelFound = await db.Product.findByPk(req.params.id);
             
@@ -18,12 +18,12 @@ module.exports = {
             console.log(error);
         }
     },
-    create: async(req, res) => {
+    create: async(req, res) => { // vista del formulario de creacion del producto
         const categories = await db.Category.findAll();
         const files = await db.File.findAll();
         res.render("products/create",{categories, files});
     },
-    save: async(req, res) => {
+    save: async(req, res) => { // metodo para que se agregue el nuevo producto en la base de datos
         try {
             const categories = await db.Category.findAll();
             const files = await db.File.findAll();
@@ -53,7 +53,7 @@ module.exports = {
             
         }
     },
-    edit: async(req, res) => {
+    edit: async(req, res) => { // vista del formulario de edicion del producto
         try {
             const categories = await db.Category.findAll();
             const files = await db.File.findAll();
@@ -62,17 +62,27 @@ module.exports = {
             res.render("products/edit",{modelEdit, files, categories});
         } catch (error) {
             console.log(error);
-            
         }
     },
-    update:async(req,res)=>{
+    update:async(req,res)=>{ // metodo para actualizar el producto una vez ya haya sido editado
         try {
+            // traigo el modelo a editar de la base de datos
             let modelEdit = await db.Product.findByPk(req.params.id);
+
+            // traigo las categorias
             const categories = await db.Category.findAll();
+
+            // traigo los tipos de archivos
             const files = await db.File.findAll();
+
+            // hago uso de express-validator para las validaciones del backend
             const resultValidator = validationResult(req);
+
             if(resultValidator.isEmpty()){
-                // let modelEdit = await db.Product.findByPk(req.params.id);
+                // acá vendria la creacion del producto editado
+                // en cada campo, el producto se modifica con la informacion que viene del formulario
+                // en caso de que algun campo venga vacio, 
+                // se usa la informacion del producto que tenia en ese campo antes de ser modificado
                 let modUpdate = {
                     name: req.body.name || modelEdit.name,
                     description: req.body.description || modelEdit.description,
@@ -81,12 +91,15 @@ module.exports = {
                     file_id: req.body.file || modelEdit.file_id,
                     image: req.file?.filename || modelEdit.image,
                 }
-        
+                
+                // se actualiza el producto con su respectivo id
                 await db.Product.update(modUpdate, {
                     where:{
                         id: req.params.id
                     }
                 })
+
+                // una vez actualizado el producto se redirecciona a la vista del home o pagina principal
                 res.redirect('/');
             } else{
                 return res.render('products/edit',{
@@ -99,7 +112,7 @@ module.exports = {
             console.log(error);
         }
     },
-    destroy:async(req,res)=>{
+    destroy:async(req,res)=>{ // metodo para eliminar el producto
         //OPCIONAL
         // let modelToDelete = await db.Product.findByPk(req.params.id);
         // if (modelToDelete.image != "default.png") {
@@ -112,7 +125,7 @@ module.exports = {
                 }
             })
             console.log('modelo borrado', modelDelete);
-            //5. redireccionar
+            // redireccionar
             res.redirect('/');
         } catch (error) {
             console.log(error);
